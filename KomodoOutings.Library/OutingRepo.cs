@@ -28,7 +28,7 @@ namespace KomodoOutings.Library
         {
             return _listOfOutings;
         }
-        public List<Outing> GetOutingByEvent(int eventType)
+        public List<Outing> GetOutingsByEvent(int eventType)
         {
             List<Outing> _output = new List<Outing>();
             foreach (Outing outing in _listOfOutings)
