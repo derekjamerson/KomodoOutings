@@ -10,14 +10,14 @@ namespace KomodoOutings.Library
     {
         public Event EventType { get; set; }
         public int NumberOfPeople { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime EventDate { get; set; }
         public decimal CostPerPerson { get; }
         public decimal TotalCost { get; set; }
         public Outing(Event eventType, int numberOfPeople, DateTime date, decimal totalCost)
         {
             EventType = eventType;
             NumberOfPeople = numberOfPeople;
-            Date = date;
+            EventDate = date;
             TotalCost = totalCost;
             CostPerPerson = TotalCost / NumberOfPeople;
         }

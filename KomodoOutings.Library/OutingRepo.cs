@@ -17,7 +17,7 @@ namespace KomodoOutings.Library
         {
             foreach(Outing outing in _listOfOutings)
             {
-                if(outing.Date == date && (int)outing.EventType == eventType)
+                if(outing.EventDate == date && (int)outing.EventType == eventType)
                 {
                     return outing;
                 }
