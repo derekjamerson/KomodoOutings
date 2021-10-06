@@ -13,17 +13,6 @@ namespace KomodoOutings.Library
         {
             _listOfOutings.Add(outing);
         }
-        public Outing GetOuting(DateTime date, int eventType)
-        {
-            foreach(Outing outing in _listOfOutings)
-            {
-                if(outing.EventDate == date && (int)outing.EventType == eventType)
-                {
-                    return outing;
-                }
-            }
-            return null;
-        }
         public List<Outing> GetList()
         {
             return _listOfOutings;
