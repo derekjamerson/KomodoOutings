@@ -108,7 +108,7 @@ namespace KomodoOutings.Console
             Outing outing = new Outing(eventType, numberOfPeople, date, totalCost);
             PrintTitle();
             PrintOuting(outing);
-            System.Console.WriteLine("/n");
+            System.Console.WriteLine("\n");
             string message = "Add this Company Outing?";
             System.Console.WriteLine(string.Format("{0," + ((System.Console.WindowWidth / 2) + (message.Length/ 2)) + "}", message));
             if (AskYesNo())
@@ -162,17 +162,17 @@ namespace KomodoOutings.Console
             int toLeft = System.Console.CursorLeft;
             int toTop = System.Console.CursorTop;
             PrintEventList(0);
-            int selection = 0;
+            int selection = 1;
             while (true)
             {
                 System.Console.SetCursorPosition(toLeft, toTop);
+                PrintEventList(selection);
                 switch (System.Console.ReadKey(true).Key)
                 {
                     case ConsoleKey.LeftArrow:
                         if(selection > 1)
                         {
                             selection--;
-                            PrintEventList(selection);
                             break;
                         }
                         break;
@@ -180,20 +180,14 @@ namespace KomodoOutings.Console
                         if(selection < numberOfEnums)
                         {
                             selection++;
-                            PrintEventList(selection);
                             break;
                         }
                         break;
                     case ConsoleKey.Enter:
-                        if(selection != 0)
-                        {
-                            System.Console.WriteLine(new string(' ', System.Console.WindowWidth));
-                            System.Console.SetCursorPosition(toLeft, toTop);
-                            System.Console.WriteLine(Enum.GetName(typeof(Outing.Event), selection));
-                            return (Outing.Event)selection;
-                        }
-                        break;
-
+                        System.Console.WriteLine(new string(' ', System.Console.WindowWidth));
+                        System.Console.SetCursorPosition(toLeft, toTop);
+                        System.Console.WriteLine(Enum.GetName(typeof(Outing.Event), selection));
+                        return (Outing.Event)selection;
                 }
             }
         }
